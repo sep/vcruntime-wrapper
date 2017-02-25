@@ -1,6 +1,9 @@
 ---
 driver:
   name: vagrant
+  customize:
+    memory: 2048
+    cpus: 2
 
 provisioner:
   name: chef_zero
@@ -11,15 +14,23 @@ provisioner:
 
 verifier:
   name: inspec
+  
+transport:
+  name: winrm
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7.2
+  - name: win10
+    os_type: windows
+    shell_type: powershell
 
 suites:
   - name: default
     run_list:
-      - recipe[vcruntime-wrapper::default]
+      - recipe[vcruntime-wrapper::vc9]
+      - recipe[vcruntime-wrapper::vc10]
+      - recipe[vcruntime-wrapper::vc10_x86]
+      - recipe[vcruntime-wrapper::vc2015]
+      - recipe[vcruntime-wrapper::vc2015_x86]
     verifier:
       inspec_tests:
         - test/smoke/default
