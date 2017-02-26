@@ -26,9 +26,9 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[vcruntime-wrapper::vc9]
-      - recipe[vcruntime-wrapper::vc10]
-      - recipe[vcruntime-wrapper::vc10_x86]
+      - recipe[vcruntime-wrapper::vc2008]
+      - recipe[vcruntime-wrapper::vc2010]
+      - recipe[vcruntime-wrapper::vc2010_x86]
       - recipe[vcruntime-wrapper::vc2015]
       - recipe[vcruntime-wrapper::vc2015_x86]
     verifier:
