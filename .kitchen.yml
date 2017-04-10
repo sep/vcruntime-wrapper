@@ -14,7 +14,9 @@ provisioner:
 
 verifier:
   name: inspec
-  
+  format: junit
+  output: '%{platform}_%{suite}_inspec.xml'
+
 transport:
   name: winrm
 
